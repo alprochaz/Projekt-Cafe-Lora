@@ -1,10 +1,18 @@
 import { render } from '@czechitas/render';
 import '../global.css';
 import './index.css';
+import { Header } from '../components/Header';
+import { Banner } from '../components/Banner';
+import { Menu } from '../components/Menu';
+import { Gallery } from '../components/Gallery';
+import { Contact } from '../components/Contact';
+import { Footer } from '../components/Footer';
 
 document.querySelector('#root').innerHTML = render(
   <div className="page">
-    <header>
+    <Header />
+
+    {/* <header>
       <div className="header__content container">
         <div className="site-logo"></div>
 
@@ -19,17 +27,21 @@ document.querySelector('#root').innerHTML = render(
         </div>
 
       </div>
-    </header>
+    </header> */}
     <main>
-      <section className="banner">
+      <Banner />
+      <Menu />
+      <Gallery />
+      <Contact />
+      {/* <section className="banner">
         <div className="container">
           <div className="banner__content">
             <h1>Přijď to ochutnat!</h1>
             <p>Nabízíme kvalitní kávu, útulné prostředí a perfektní servis.</p>
           </div>
         </div>
-      </section>
-      <section className="menu">
+      </section> */}
+      {/* <section className="menu">
         <div className="container">
           <h2>Naše nabídka</h2>
           <p className="menu-intro">
@@ -108,9 +120,9 @@ document.querySelector('#root').innerHTML = render(
             <a href="/order.html">Detail objednávky</a>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="gallery">
+      {/* <section className="gallery">
         <div className="container">
           <div className="gallery__content">
             <h2>Nově otevřeno!</h2>
@@ -131,9 +143,9 @@ document.querySelector('#root').innerHTML = render(
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section>
+      {/* <section>
         <div className="container">
           <h2>Kde nás najdete</h2>
           <div className="contact">
@@ -153,15 +165,17 @@ document.querySelector('#root').innerHTML = render(
             <iframe src="https://mapy.cz/s/paloregama" width="100%" height="600" frameBorder="0" title="Café Lóra na mapě."></iframe>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
+    
+    <Footer />
 
-    <footer>
+    {/* <footer>
       <div className="container">
         <div className="footer__content">
           Café Lóra je tréningový projekt v rámci Czechitas kurzu JavaScript 2
         </div>
       </div>
-    </footer>
+    </footer> */}
   </div>
 );
