@@ -190,11 +190,10 @@ hamburgerButton.addEventListener("click", () => {
 })
 
 
-// Navigaci budeme chtít schovat i po kliknutí na odkaz uvnitř navigace. Připojte tedy další posluchač události přímo na 
+// bod 3. Navigaci budeme chtít schovat i po kliknutí na odkaz uvnitř navigace. Připojte tedy další posluchač události přímo na 
 // prvek .rollout-nav. V posluchači události zařiďte, aby se navigace při kliknutí na libovolnou její položku schovala 
-// (tj. prvku .rollout-nav přidáte třídu nav-closed, obdobně, jako v předchozím kroku při přepínání).
+// (tj. prvku .rollout-nav přidáte třídu nav-closed, obdobně, jako v předchozím kroku při přepínání). 👀💡 event Propagation
 
 rolloutNav.addEventListener("click", () => {
   rolloutNav.classList.add("nav-closed")
-
 })

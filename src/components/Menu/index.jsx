@@ -1,3 +1,4 @@
+import { Drink } from '../Drink';
 import './style.css';
 export const Menu = () => {
     return (
@@ -8,6 +9,8 @@ export const Menu = () => {
                     Vyberte si z našeho interaktivního menu a nemusíte čekat na obsluhu
                 </p>
                 <div className="drinks-list">
+                    <Drink name="kavicka" />
+
                     <div className="drink">
                     <div className="drink__product">
                         <div className="drink__cup">
