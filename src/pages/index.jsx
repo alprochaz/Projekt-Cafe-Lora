@@ -179,3 +179,22 @@ document.querySelector('#root').innerHTML = render(
     </footer> */}
   </div>
 );
+
+
+// 3) Zprovozneni navigace - bod 2
+const hamburgerButton = document.querySelector(".nav-btn")
+const rolloutNav = document.querySelector(".rollout-nav")
+
+hamburgerButton.addEventListener("click", () => {
+  rolloutNav.classList.toggle("nav-closed")
+})
+
+
+// Navigaci budeme chtít schovat i po kliknutí na odkaz uvnitř navigace. Připojte tedy další posluchač události přímo na 
+// prvek .rollout-nav. V posluchači události zařiďte, aby se navigace při kliknutí na libovolnou její položku schovala 
+// (tj. prvku .rollout-nav přidáte třídu nav-closed, obdobně, jako v předchozím kroku při přepínání).
+
+rolloutNav.addEventListener("click", () => {
+  rolloutNav.classList.add("nav-closed")
+
+})
