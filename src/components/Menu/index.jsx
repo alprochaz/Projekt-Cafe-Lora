@@ -1,6 +1,17 @@
 import { Drink } from '../Drink';
 import './style.css';
-export const Menu = () => {
+
+// 2.1.4. Komponentu Menu upravte tak, aby přijímala prop s názvem drinks. Skrz ni komponentě předejte stažený seznam nápojů a zobrazte uvnitř
+//  prvku drinks-list za využití komponenty Drink. -> 💡👀 pouziji map 
+
+// 2.1.5 Díky datům z API můžeme komponentě Drink předat reálná data a zprovoznit tak obrázky a ingredience. Adresu obrázku z API předáte 
+// přes prop image. Nezapomeňte, že z API vám přijde pouze relativní cesta souboru, např. /assets/cups/romano.png, které musí předcházet url
+// adresa, kde běží váš backend server, např. http://localhost:4000. Pomocí interpolace řetězců složte správně URL adresu obrázku a použijte uvnitř src.
+
+export const Menu = ({drinks}) => {
+   
+    console.log(drinks)
+
     return (
         <section className="menu" id="menu">
             <div className="container">
@@ -9,9 +20,19 @@ export const Menu = () => {
                     Vyberte si z našeho interaktivního menu a nemusíte čekat na obsluhu
                 </p>
                 <div className="drinks-list">
-                    <Drink name="kavicka" />
+                    {drinks.map(drink =>
+                        <Drink
+                            key={drink.id}
+                            id={drink.id}
+                            name={drink.name}
+                            ordered={drink.ordered}
+                            image={`http://localhost:4000${drink.image}`}
+                            layers={drink.layers}
+                        />
+                    )}
 
-                    <div className="drink">
+                    {/* Puvodni kod */}
+                    {/* <div className="drink">
                     <div className="drink__product">
                         <div className="drink__cup">
                         <img src="/cups/espresso.png" />
@@ -76,7 +97,7 @@ export const Menu = () => {
                         Objednat
                         </button>
                     </form>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="order-detail">
