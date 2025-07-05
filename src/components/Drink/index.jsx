@@ -1,6 +1,12 @@
 import { Layer } from '../Layer';
 import './style.css';
-export const Drink = ({name, image, ordered, layers}) => {
+
+// 2.2.1 Nejdříve si všimněte, že data pro jeden nápoj obsahují vlastnost ordered, která udává, zda je nápoj zrovna objednaný či nikoliv. 
+// Toto je zároveň prop v komponentě Drink. Upravte ji tak, aby podle toho zobrazila na tlačíku text Objednat nebo Zrušit. (r.36) 💡💡👀
+// 2.2.2 Na objednávací tlačítko také přidejte třídu .order-btn--ordered v případě, že nápoj je objednaný. (r.35)
+// 2.2.3 Prop id předejte atributu data-id, který vložte na <form>. (r.32)
+
+export const Drink = ({id, name, image, ordered, layers}) => {
     return (     
         <div className="drink">
             <div className="drink__product">
@@ -12,6 +18,7 @@ export const Drink = ({name, image, ordered, layers}) => {
 
                     {layers.map((layer) => (
                         < Layer 
+                            key={layer.label}
                             color = {layer.color}
                             label = {layer.label}
                         />
@@ -22,15 +29,20 @@ export const Drink = ({name, image, ordered, layers}) => {
      
                 </div>
             </div>
-            <form className="drink__controls">
-                <input type="hidden" className="order-id" value="0" />
-                <button className="order-btn">
-                    Objednat
+            <form className="drink__controls" data-id={id}>
+                <input type="hidden" className="order-id" value="0" />                  
+
+                <button className={`order-btn ${ordered ? "order-btn--ordered" : " "} `}  >
+                    {ordered ? 'Zrušit' : 'Objednat'}                     
                 </button>
+
+                
             </form>
         </div>
     )
 }
+
+
 
 {/* Priprava pro propsy 4)2
 <Drink
